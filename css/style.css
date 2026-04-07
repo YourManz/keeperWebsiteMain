@@ -1,0 +1,555 @@
+/* =============================================
+   KEEPER — Main Stylesheet
+   Design decisions documented in Obsidian:
+   Zettelkasten/Keeper Website Design Decisions.md
+   ============================================= */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #1B2A3B;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+/* ---------- Spacing / Layout ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-alt {
+  background: #F5F6F7;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  color: #5A6472;
+  font-size: 1.1rem;
+  margin-bottom: 48px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: #D4820A;
+  color: #ffffff;
+  border-color: #D4820A;
+}
+
+.btn-primary:hover {
+  background: #b86e08;
+  border-color: #b86e08;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #1B2A3B;
+  border-color: #1B2A3B;
+}
+
+.btn-secondary:hover {
+  background: #1B2A3B;
+  color: #ffffff;
+}
+
+.btn-sm {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Navigation ---------- */
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1B2A3B;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.15);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #E2E5E9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 200ms ease;
+}
+
+.nav-links a:not(.btn):hover {
+  color: #ffffff;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 96px 0 80px;
+  background: linear-gradient(135deg, #1B2A3B 0%, #243647 100%);
+  color: #ffffff;
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: #B0BEC9;
+  margin-bottom: 40px;
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero .btn-secondary {
+  color: #E2E5E9;
+  border-color: #4A6278;
+}
+
+.hero .btn-secondary:hover {
+  background: #ffffff;
+  color: #1B2A3B;
+  border-color: #ffffff;
+}
+
+/* ---------- Service Cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #E2E5E9;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: box-shadow 200ms ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.11);
+}
+
+.card-featured {
+  border-color: #D4820A;
+  border-width: 2px;
+}
+
+.card-badge {
+  position: absolute;
+  top: -13px;
+  left: 32px;
+  background: #D4820A;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.card-tier {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #D4820A;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.card ul {
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card ul li {
+  padding-left: 20px;
+  position: relative;
+  color: #5A6472;
+  font-size: 0.95rem;
+}
+
+.card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D4820A;
+  opacity: 0.6;
+}
+
+/* ---------- Pillars (Why Keeper) ---------- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillar-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.pillar p {
+  color: #5A6472;
+  line-height: 1.7;
+}
+
+/* ---------- Steps (How It Works) ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #E2E5E9;
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #D4820A;
+  background: #F5F6F7;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #E2E5E9;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.step p {
+  color: #5A6472;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.calendly-placeholder {
+  background: #F5F6F7;
+  border: 2px dashed #E2E5E9;
+  border-radius: 8px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  min-height: 320px;
+}
+
+.placeholder-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5A6472;
+}
+
+.calendly-placeholder p {
+  color: #5A6472;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.calendly-placeholder code {
+  background: #E2E5E9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1B2A3B;
+}
+
+.optional {
+  font-weight: 400;
+  color: #5A6472;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1.5px solid #E2E5E9;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #1B2A3B;
+  background: #ffffff;
+  transition: border-color 200ms ease;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #D4820A;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #1B2A3B;
+  color: #B0BEC9;
+  padding: 32px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-email {
+  color: #B0BEC9;
+  text-decoration: none;
+  margin-left: auto;
+  transition: color 200ms ease;
+}
+
+.footer-email:hover {
+  color: #ffffff;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #5A6472;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 48px 0; }
+
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #1B2A3B;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px 24px;
+    gap: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-inner { position: relative; }
+
+  .hero { padding: 64px 0 48px; }
+
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .footer-email { margin-left: 0; }
+}
