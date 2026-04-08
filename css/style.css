@@ -156,13 +156,43 @@ body {
 /* ---------- Hero ---------- */
 .hero {
   padding: 96px 0 80px;
-  background: linear-gradient(135deg, #1B2A3B 0%, #243647 100%);
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(212,130,10,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 50%),
+    linear-gradient(135deg, #1B2A3B 0%, #22334a 60%, #1e3048 100%);
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  pointer-events: none;
 }
 
 .hero-inner {
   max-width: 720px;
+  position: relative;
+  z-index: 1;
 }
+
 
 .hero h1 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
@@ -322,7 +352,7 @@ body {
 .steps::before {
   content: '';
   position: absolute;
-  top: 20px;
+  top: 24px;
   left: 0;
   right: 0;
   height: 2px;
@@ -368,9 +398,14 @@ body {
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: 48px;
   align-items: start;
+}
+
+.calendly-inline-widget {
+  min-width: 320px;
+  height: 700px;
 }
 
 .calendly-placeholder {
@@ -508,17 +543,24 @@ body {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .cards {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-  }
-
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .steps::before {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 }
 
