@@ -455,6 +455,21 @@ body {
   border-color: #D4820A;
 }
 
+.form-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+.form-status--success {
+  background: #e6f4ea;
+  color: #1e6b35;
+}
+.form-status--error {
+  background: #fdecea;
+  color: #b71c1c;
+}
+
 /* ---------- Footer ---------- */
 .footer {
   background: #1B2A3B;
