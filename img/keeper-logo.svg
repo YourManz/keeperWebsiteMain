@@ -1,0 +1,11 @@
+<svg id="logo" width="280" viewBox="0 10 280 68" xmlns="http://www.w3.org/2000/svg">
+  <rect id="mark-bg" x="10" y="16" width="44" height="52" rx="4" fill="#243850"/>
+  <rect id="line1" x="18" y="30" width="28" height="2.5" rx="1" fill="#D4820A"/>
+  <rect id="line2" x="18" y="39" width="20" height="2.5" rx="1" fill="#D4820A"/>
+  <rect id="line3" x="18" y="49" width="24" height="2.5" rx="1" fill="#D4820A"/>
+  <rect id="line4" x="18" y="58" width="14" height="2.5" rx="1" fill="#D4820A"/>
+  <path id="arrow" d="M42 24 L50 31 L42 38" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text id="wordmark" x="68" y="54" font-family="Georgia, serif" font-size="36" font-weight="400" letter-spacing="-0.5" fill="#FFFFFF">Keeper</text>
+  <text id="tagline" x="68" y="70" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="3" fill="#F5F6F7">BUILT FOR THE TRADES</text>
+  <rect id="divider" x="10" y="88" width="268" height="0.8" fill="#FFFFFF" opacity="0.15"/>
+</svg>

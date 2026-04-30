@@ -25,6 +25,47 @@
     });
   }
 
+  // Hero job-cost card — random job on each load
+  var jobs = [
+    {
+      name: 'Wilkinson Industrial Build',
+      revenue: '$284,500', costs: '$198,200', holdback: '$28,450',
+      profit: '$86,300', margin: '30.3%'
+    },
+    {
+      name: 'McKenzie Road Subdivision — Ph. 2',
+      revenue: '$412,000', costs: '$298,400', holdback: '$41,200',
+      profit: '$113,600', margin: '27.6%'
+    },
+    {
+      name: 'Westshore Medical Centre Reno',
+      revenue: '$186,750', costs: '$124,200', holdback: '$18,675',
+      profit: '$62,550', margin: '33.5%'
+    },
+    {
+      name: 'Cariboo Logging Road Extension',
+      revenue: '$634,000', costs: '$498,800', holdback: '$63,400',
+      profit: '$135,200', margin: '21.3%'
+    },
+    {
+      name: 'Burnaby Townhome Complex — Unit 4',
+      revenue: '$328,900', costs: '$241,200', holdback: '$32,890',
+      profit: '$87,700', margin: '26.7%'
+    }
+  ];
+
+  var card = document.querySelector('.hero-card');
+  if (card) {
+    var job = jobs[Math.floor(Math.random() * jobs.length)];
+    var rows = card.querySelectorAll('.hero-card-row span:last-child');
+    card.querySelector('.hero-card-job').textContent = job.name;
+    if (rows[0]) rows[0].textContent = job.revenue;
+    if (rows[1]) rows[1].textContent = job.costs;
+    if (rows[2]) rows[2].textContent = job.holdback;
+    if (rows[3]) rows[3].textContent = job.profit;
+    card.querySelector('.hero-card-pct').textContent = job.margin;
+  }
+
   // Contact form: Ajax submission via Formspree
   const form = document.querySelector('.contact-form');
   if (form) {

@@ -12,7 +12,9 @@
   <!-- ===================== NAV ===================== -->
   <header class="nav-header">
     <nav class="nav-inner container">
-      <a href="#" class="nav-logo">Keeper</a>
+      <a href="#" class="nav-logo">
+        <img src="img/keeper-logo.svg" alt="Keeper" class="nav-logo-img" height="72" />
+      </a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -29,12 +31,46 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero">
       <div class="container hero-inner">
-        <h1>Construction bookkeeping that keeps your jobs profitable.</h1>
-        <p class="hero-sub">Keeper handles the books so you can focus on the build. Job costing, payroll, GST/PST, and reporting — built for BC contractors.</p>
-        <div class="hero-ctas">
-          <a href="https://calendly.com/kneilson-keepercom/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Call</a>
-          <a href="#services" class="btn btn-secondary">See Our Services</a>
+
+        <div class="hero-text">
+          <h1>Construction bookkeeping that keeps your jobs profitable.</h1>
+          <p class="hero-sub">Keeper handles the books so you can focus on the build. Job costing, payroll, GST/PST, and reporting — built for BC contractors.</p>
+          <div class="hero-ctas">
+            <a href="https://calendly.com/kneilson-keepercom/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Call</a>
+            <a href="#services" class="btn btn-secondary">See Our Services</a>
+          </div>
         </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-label">Job Cost Summary</div>
+            <div class="hero-card-job">Wilkinson Industrial Build</div>
+            <div class="hero-card-rows">
+              <div class="hero-card-row">
+                <span>Revenue</span>
+                <span>$284,500</span>
+              </div>
+              <div class="hero-card-row">
+                <span>Direct Costs</span>
+                <span>$198,200</span>
+              </div>
+              <div class="hero-card-row">
+                <span>Holdback (10%)</span>
+                <span>$28,450</span>
+              </div>
+              <div class="hero-card-row hero-card-profit">
+                <span>Gross Profit</span>
+                <span>$86,300</span>
+              </div>
+            </div>
+            <div class="hero-card-margin">
+              <span class="hero-card-pct">30.3%</span>
+              <span class="hero-card-pct-label">gross margin</span>
+            </div>
+            <p class="hero-card-disclaimer">Example job — illustrative numbers only.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -54,11 +90,10 @@
               <li>GST/PST filing</li>
               <li>Year-end prep</li>
             </ul>
-            <a href="#contact" class="btn btn-primary btn-sm">Get Started</a>
+            <a href="#contact" class="btn btn-outline btn-sm">Get Started</a>
           </div>
 
-          <div class="card card-featured">
-            <div class="card-badge">Most Popular</div>
+          <div class="card">
             <div class="card-tier">Structure</div>
             <h3>Construction Core</h3>
             <ul>
@@ -68,12 +103,14 @@
               <li>Payroll processing</li>
               <li>T5018 contractor reporting</li>
             </ul>
-            <a href="#contact" class="btn btn-primary btn-sm">Get Started</a>
+            <a href="#contact" class="btn btn-outline btn-sm">Get Started</a>
           </div>
 
-          <div class="card">
+          <div class="card card-featured">
+            <div class="card-badge">Most Popular</div>
             <div class="card-tier">Blueprint</div>
             <h3>Premium Reporting</h3>
+            <p class="card-intro">Your books, your margins, your cash position — reviewed with you every month so you know exactly where each job stands.</p>
             <ul>
               <li>Everything in Structure</li>
               <li>WIP &amp; holdback reporting</li>
@@ -85,6 +122,8 @@
           </div>
 
         </div>
+
+        <p class="pricing-note">Pricing varies by scope and job volume. <a href="#contact">Contact us for a quote.</a></p>
       </div>
     </section>
 
@@ -133,7 +172,7 @@
     </section>
 
     <!-- ===================== HOW IT WORKS ===================== -->
-    <section id="how-it-works" class="section section-alt">
+    <section id="how-it-works" class="section">
       <div class="container">
         <h2 class="section-title">How It Works</h2>
         <p class="section-sub">Four steps from first call to clean books.</p>
@@ -163,10 +202,15 @@
     </section>
 
     <!-- ===================== CONTACT / BOOK ===================== -->
-    <section id="contact" class="section">
+    <section id="contact" class="section section-alt">
       <div class="container">
         <h2 class="section-title">Book a Call</h2>
         <p class="section-sub">30 minutes. No pressure. We'll tell you exactly what working together would look like.</p>
+
+        <div class="contact-fit">
+          <strong>Who this is for:</strong> BC trades and general contractors running jobs with 2+ employees, looking to get their books current and understand where each job is making or losing money. If you're not in construction, we're not the right fit — and we'll tell you that on the call.
+        </div>
+
         <div class="contact-grid">
 
           <!-- Calendly inline widget -->
@@ -178,15 +222,15 @@
             <h3>Or send a message</h3>
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" required placeholder="Your name" />
+              <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name" />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="you@company.com" />
+              <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email" />
             </div>
             <div class="form-group">
               <label for="company">Company</label>
-              <input type="text" id="company" name="company" placeholder="Your company name" />
+              <input type="text" id="company" name="company" placeholder="Your company name" autocomplete="organization" />
             </div>
             <div class="form-group">
               <label for="message">Message <span class="optional">(optional)</span></label>
@@ -205,15 +249,14 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-logo">Keeper</span>
+      <img src="img/keeper-logo.svg" alt="Keeper" class="footer-logo-img" height="32" />
       <span class="footer-location">BC, Canada</span>
       <a href="mailto:kneilson@keepercom.com" class="footer-email">kneilson@keepercom.com</a>
-      <a href="/privacy.html" class="footer-copy" style="text-decoration:underline;">Privacy Policy</a>
-      <a href="/api-terms.html" class="footer-copy" style="text-decoration:underline;">API Terms</a>
+      <a href="/privacy.html" class="footer-link">Privacy Policy</a>
       <span class="footer-copy">&copy; 2026 Keeper. All rights reserved.</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>
