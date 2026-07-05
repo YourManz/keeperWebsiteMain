@@ -1,43 +1,53 @@
 # Keeper Website
 
-Static site for Keeper Construction Bookkeeping. Built to host on GitHub Pages.
+Static marketing site for Keeper Construction Bookkeeping, live at
+[www.keepercom.com](https://www.keepercom.com). Plain HTML/CSS with a single
+small JS file — no build step, no frameworks.
 
-## Placeholders to replace before going live
+## Pages
 
-| Placeholder | File | What to put |
-|-------------|------|-------------|
-| `CALENDLY_URL` | `index.html` (×2) | Your Calendly scheduling link |
-| `FORMSPREE_ID` | `index.html` | Your Formspree form ID (sign up at formspree.io) |
-| `CONTACT_EMAIL` | `index.html` (×2) | Your business email address |
+| Page | Purpose |
+|------|---------|
+| `index.html` | Landing page: hero, service tiers, why Keeper, 4-step overview, contact |
+| `process.html` | "How We Work" — monthly rhythm, onboarding path, construction specifics, FAQ |
+| `portal.html` | Client portal explainer (personal dashboard link arrives via the monthly report email) |
+| `privacy.html` | Privacy policy (PIPEDA) |
+| `api-terms.html` | QuickBooks Online API authorization agreement |
 
-## Deploying to GitHub Pages
+Shared assets: `css/style.css` (single stylesheet for all pages),
+`js/main.js` (mobile nav toggle, hero job-card rotation, Formspree Ajax submit —
+loaded as `main.js?v=2` on every page), `img/keeper-logo.svg` (logo + favicon).
+`robots.txt` and `sitemap.xml` cover all five pages.
 
-1. Create a new GitHub repo (e.g. `keeper-website`)
-2. Push this folder to the `main` branch
-3. Go to repo Settings → Pages → Source: Deploy from branch → Branch: `main`, folder: `/ (root)`
-4. GitHub will publish at `https://<your-username>.github.io/keeper-website/`
-5. To use a custom domain: add a `CNAME` file with your domain and configure DNS per GitHub's docs
+## Live integrations
 
-## Swapping the Calendly placeholder
+- **Contact form:** Formspree form `mqeneqro` (`index.html`), submitted via
+  fetch with inline success/error status.
+- **Booking:** Calendly inline widget + CTA links →
+  `https://calendly.com/kneilson-keepercom/30min`.
+- **Client intake:** external link to `https://intake.keepercom.com`.
 
-When your Calendly account is ready, replace the `<div class="calendly-placeholder">` block in `index.html` with the Calendly inline embed:
+## Deployment
 
-```html
-<!-- Calendly inline widget -->
-<div class="calendly-inline-widget" data-url="YOUR_CALENDLY_URL" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-```
+Deployed with GitHub Pages from the `main` branch, root folder. The custom
+domain is set by the `CNAME` file (`www.keepercom.com`); pushing to `main`
+publishes automatically. Keep the `?v=` query on `main.js` in sync across
+pages when the script changes, so cached copies roll over together.
 
-## Contact form (Formspree)
+## Conventions
 
-1. Sign up at [formspree.io](https://formspree.io) (free tier: 50 submissions/month)
-2. Create a new form, copy the form ID
-3. Replace `FORMSPREE_ID` in `index.html` with your ID
-4. No server required — form submissions are emailed to you directly
+- One stylesheet; new sections reuse existing patterns (`.section`, `.cards`,
+  `.pillars`, `.steps`, `.legal-hero`, `.cta-band`). No new fonts, frameworks,
+  or JS dependencies.
+- Colors and contrast are documented in comments in `css/style.css` — keep
+  WCAG AA when adding anything.
+- Copy voice: Keeper is a systemized, disciplined bookkeeping process
+  (cadence, checklists, reviews). Never describe the service in terms of
+  AI or automation anywhere on the site.
 
 ## Local preview
 
-Open `index.html` directly in a browser, or run a simple server:
+Open `index.html` directly, or:
 
 ```bash
 python3 -m http.server 8000
