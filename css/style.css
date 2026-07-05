@@ -992,6 +992,16 @@ h1, h2 {
   gap: 24px;
 }
 
+.portal-wrap .card ul li strong {
+  color: #1B2A3B;
+}
+
+.portal-fineprint {
+  color: #5A6472;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
 /* Amber-tinted callout, same look as .legal-content .notice */
 .portal-note {
   background: #FFF8F0;
